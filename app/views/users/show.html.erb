@@ -1,0 +1,32 @@
+<br>
+<br>
+<div class="dashboard-main">
+  <div class="point-box">
+    <%= @user.name.capitalize %>'s available points: <%= @user.points %>
+  </div>
+
+  <div class="rewards">
+    <h3>Available Rewards</h3>
+    <ul class="list-group">
+      <% @rewards.each do |reward| %>
+      <li>
+        <%= reward.name.capitalize %>:
+        <%= reward.point_value %> |
+        <%= link_to "Redeem Reward", user_rewards_path(reward_id: reward.id), method: :post %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="redeemed-rewards">
+    <h3>Previous Rewards</h3>
+    <ul class="list-group">
+      <% @user.rewards.each do |reward| %>
+      <li>
+        <%= reward.name.capitalize %>:
+        <%= reward.point_value %>
+      </li>
+        <% end %>
+    </ul>
+  </div>
+</div>

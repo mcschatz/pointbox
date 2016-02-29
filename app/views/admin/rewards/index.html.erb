@@ -1,0 +1,18 @@
+<div class="dashboard-main">
+  <h3>Rewards | <%= link_to "Create Reward", new_reward_path %></h3>
+    <ul>
+      <% @rewards.each do |reward| %>
+      <li>
+      <strong><%= reward.name %> | Point Value: <%= reward.point_value %></strong><br>
+        <%= link_to "Edit", edit_reward_path(reward) %> | <%= link_to "Delete", reward, method: :delete, data: { confirm: 'Please confirm you wish to delete this reward.' } %>
+      </li>
+      <% end %>
+    </ul>
+
+  <h2>Users</h2>
+    <% @users.each do |user| %>
+    <li><strong><%= user.name %></strong>: <%= user.points %>
+      <br>
+      <%= button_to  "-", admin_reward_path(user, quantity: "decrease"), method: :put %> <%= button_to  "+", admin_reward_path(user, quantity: "increase"), method: :put %></li>
+    <% end %>
+</div>

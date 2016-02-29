@@ -1,0 +1,11 @@
+<h1>Create a Reward</h1>
+
+  <%= form_for (@reward) do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+
+    <%= f.label :point_value %><br>
+    <%= f.text_field :point_value %>
+
+    <%= f.submit "Create Reward" %>
+  <% end %>
